@@ -1,7 +1,7 @@
 from modules.text_detection import TextDetection    
 import cv2
 
-IMG_PATH = r"samples/inner_left.jpg"
+IMG_PATH = r"samples/inner_right.jpg"
 
 if __name__ == "__main__":
     detector = TextDetection(device="cpu")
