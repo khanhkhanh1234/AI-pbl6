@@ -22,4 +22,5 @@ if __name__ == "__main__":
     print(f"Số lượng bounding box được nhận diện: {bounding_box_count}")
 
     cv2.imshow("result", clone_image)
+    cv2.imwrite("result.jpg", clone_image)
     cv2.waitKey(0)

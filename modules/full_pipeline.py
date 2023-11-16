@@ -16,25 +16,30 @@ class FullPipeline:
     def __call__(self, front_image, inner_left_image, inner_right_image, back_image):
         front_text, inner_left_text, inner_right_text = "", "", ""
         land_image = None
-            
+        
+        front_image = front_image[:, :, ::-1]
+        inner_left_image = inner_left_image[:, :, ::-1] 
+        inner_right_image = inner_right_image[:, :, ::-1]
+        back_image = back_image[:, :, ::-1]
+
         if front_image is not None:
             print(">> Process on front")
-            for line in tqdm(self.detector(front_image)):
+            for line in tqdm(self.detector(front_image, False)):
                 line_text = ""
                 for bbox, image in line:
                     text, confidence = self.recognizer(Image.fromarray(image))
                     line_text = line_text + text
-                # print(">>", line_text)
+                print(">>", line_text)
                 front_text = front_text + line_text + "\n"
                 
         if inner_left_image is not None:
             print(">> Process on inner left")
-            for line in tqdm(self.detector(inner_left_image)):
+            for line in tqdm(self.detector(inner_left_image,False)):
                 line_text = ""
                 for bbox, image in line:
                     text, confidence = self.recognizer(Image.fromarray(image))
                     line_text = line_text + text
-                # print(">>", line_text)
+                print(">>", line_text)
                 inner_left_text = inner_left_text + line_text + "\n"   
                 
         if inner_right_image is not None:

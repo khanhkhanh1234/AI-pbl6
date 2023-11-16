@@ -11,7 +11,7 @@ import cv2
 class TextDetection(Base):
     def __init__(self, device="cpu"):
         paddle.set_device(device)
-        self.detector = PaddleOCR(lang='en')
+        self.detector = PaddleOCR(lang='en', det=True, rec=False, cls=False, use_angle_cls=False)
 
     def __call__(self, image: np.ndarray, line_group=True):
         # Detection
