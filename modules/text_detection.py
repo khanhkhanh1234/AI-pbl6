@@ -24,6 +24,8 @@ class TextDetection(Base):
             lines_bbox = [[bbox] for bbox in bboxes]
         # sort line top to bottom
         lines_bbox = TextDetection.sort_lines_bbox(lines_bbox)
+        print("in line box _____")
+        print(lines_bbox)
         # bbox to image
         lines_bboxes_image = []
         for line_bbox in lines_bbox:

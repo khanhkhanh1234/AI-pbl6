@@ -67,7 +67,7 @@ class FullPipeline:
             land_image = inner_right_image[y1_graph:y2_graph,:,:]
             
         if back_image is not None:
-            print(">> Process on back")
+            print(">> Process on back in 12345")
             x_col1 = None
             x_col2 = None
             for line in tqdm(self.detector(back_image, False)):
