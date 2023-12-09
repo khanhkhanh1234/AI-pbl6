@@ -132,10 +132,10 @@ class InformationExtraction(Base):
         data = {}
         lines = content.split("\n");
         innerLeftPage = InnerLeftPage("","","","","","","","")
-        innerLeftPage.set_terrain_non(lines[2][lines[2].find(":"):])
+        innerLeftPage.set_terrain_non(lines[2][lines[2].find(":")+1:])
         innerLeftPage.set_map_sheet(lines[3][lines[3].find(":")+1:])
         innerLeftPage.set_address(lines[4][lines[4].find(":") +1 :])
-        innerLeftPage.set_superficie(lines[6][lines[6].find(":"):lines[6].find(",")] +"M3")
+        innerLeftPage.set_superficie(lines[5][lines[5].find(":"):lines[5].find(",")] +"M3")
         innerLeftPage.set_usage_pattern(lines[7])
         innerLeftPage.set_purpose_of_use(lines[9])
         innerLeftPage.set_expiration_date(lines[11])
