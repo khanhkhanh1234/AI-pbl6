@@ -2,7 +2,7 @@ from modules.text_recognition import TextRecognition
 from PIL import Image 
 import cv2
 
-IMG_PATH = r"samples/ocr.jpg"
+IMG_PATH = r"samples/hm1.jpg"
 
 if __name__ == "__main__":
     recognizer = TextRecognition(device="cpu")

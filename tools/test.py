@@ -30,10 +30,11 @@ back =r"samples/back.png"
 @app.post("/")
 async def extract_info():
     front_image = cv2.imread(front)
-    back_image = cv2.imread(back)
+    back_image = cv2.imread(left)
     inner_left_image = cv2.imread(left) 
     inner_right_image = cv2.imread(right)
     data = pipeline(front_image, inner_left_image, inner_right_image, back_image)
+    
     return data
 
 if __name__ == "__main__":

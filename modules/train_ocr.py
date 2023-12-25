@@ -30,7 +30,7 @@ class TrainVietOCR(Base):
         self.config['trainer'].update(params)
         self.config['dataset'].update(dataset_params)
         self.config['device'] = device
-        self.trainer = Trainer(self.config, pretrained=True)
+        self.trainer = Trainer(self.config, pretrained=False)
 
     def __call__(self):
         global config_yml_path
